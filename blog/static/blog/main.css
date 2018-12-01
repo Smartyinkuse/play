@@ -1,0 +1,11 @@
+.box-1{
+    padding-top: 15px;
+    background-color: beige;
+    padding-left: 15px;
+    padding-bottom:15px; 
+    margin-left: auto;
+    margin-top: 10px;
+}
+.navbar navbar-expand-lg{
+    background-color: rgba(228, 228, 205, 0.699);
+}

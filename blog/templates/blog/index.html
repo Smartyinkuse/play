@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+    
+
+    <div class="container">
+        {% for object in queryset %}
+        <div class="article">
+            <br>
+            <h2>
+               {{ object.title }}  
+            </h2>
+            <P-3>Posted by {{ object.author }} on {{ object.changed}}</p-3>
+            <br>
+            <br>
+            <p>
+                <b>{{ object.halfway }}</b>
+            </p>
+            <a href="{% url 'blog:body' object.slugs %}" 'style'="color": 'green'>READ MORE</a>
+            
+           
+        </div>
+        {% endfor %}
+     </div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SMARTBLOG</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "blog/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "blog/layout.css" %}">
+    
+</head>
+<body>
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear"> 
+      <div class="fl_left">
+        <ul>
+          <li><i class="fa fa-phone"></i> +234905532886</li>
+          <li><i class="fa fa-envelope-o"></i> olayinkafamutimi@yahoo.com</li>
+        </ul>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="fl_right">
+        <ul>
+          <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="/accounts/article"> Write an article </a></li>
+          <li><a href="/accounts/logout"> Logout</a></li>
+        </ul>
+      </div>
+      {% else %}
+      <div class="fl_right">
+        <ul>
+          <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="/accounts/login">Login</a></li>
+          <li><a href="/accounts/">Register</a></li>
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+
+     {% if user.is_authenticated %}
+     <div id="logo" class="fl_left">
+        <h1><a href="{% url 'blog:blogindex' %}">SMARTBLOG</a></h1>
+        <p>Everyday lives on here...</p>
+      </div>
+      <div id="quickinfo" class="fl_right">
+        <ul class="nospace inline">
+          <li><strong>KIISHI:</strong><br>
+            +2348128730170</li>
+          <li><strong>BASIT:</strong><br>
+            +2348094222540</li>
+          <li><strong>Logged in as</strong><br>
+          {{ user.username }}</li>
+        </ul>
+      </div>
+      {% else %}
+      <div id="logo" class="fl_left">
+          <h1><a href="{% url 'blog:blogindex' %}">>SMARTBLOG</a></h1>
+          <p>Everyday lives on here...</p>
+        </div>
+        <div id="quickinfo" class="fl_right">
+          <ul class="nospace inline">
+            <li><strong>KIISHI:</strong><br>
+              +2348128730170</li>
+            <li><strong>BASIT:</strong><br>
+              +2348094222540</li>
+      {% endif %}
+    </header>
+  </div>      {% block body%}
+        {% endblock %}
+</body>
+</html>
